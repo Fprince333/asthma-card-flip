@@ -996,6 +996,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@bijection/smoke@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@bijection/smoke/-/smoke-1.0.2.tgz#558b39c603ae1ee89d95838442983782d4fd7bc0"
+  integrity sha512-K4L+2hqsKsLRabu7J2pD9mlIUopb+W07r0e6gohKdDfsc7immhhhYRGaX1+hF19W2eXnFmdUROqXLvsZBysyfw==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"
@@ -8498,6 +8503,11 @@ react-error-overlay@^6.0.4:
   version "6.0.4"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.4.tgz#0d165d6d27488e660bc08e57bdabaad741366f7a"
   integrity sha512-ueZzLmHltszTshDMwyfELDq8zOA803wQ1ZuzCccXa1m57k1PxSHfflPD5W9YIiTXLs0JTLzoj6o1LuM5N6zzNA==
+
+react-flippy@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/react-flippy/-/react-flippy-0.1.5.tgz#ba097fbd671ef315e7726dc26ea918e0b19be343"
+  integrity sha512-y0q9l33YQmASGY7ojcrlY0BzVsCYgThFjXjNL+4C19ws5vEpdKH+PyG5v9ZbLXq2kGArDO921FT7fhFSAX2SMQ==
 
 react-is@^16.8.1, react-is@^16.8.4:
   version "16.12.0"
