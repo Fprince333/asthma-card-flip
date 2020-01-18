@@ -46,9 +46,8 @@ function App() {
     const ctx = canvas.getContext('2d')
     const party = SmokeMachine(ctx, [54, 16.8, 18.2])
     canvas.width = 1184
-    canvas.height = 240
-    party.addSmoke(600,500,100)
-    party.addSmoke(500,600,20)
+    party.addSmoke(200,600,100)
+    party.addSmoke(1000,600,20)
     party.start()
   })
   return (
