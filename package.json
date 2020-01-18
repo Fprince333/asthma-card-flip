@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "react-scripts build && cd build && surge --domain https://asthma-cards.surge.sh"
+    "deploy": "rm -rf build && react-scripts build && cd build && surge --domain https://asthma-cards.surge.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
