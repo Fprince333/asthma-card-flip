@@ -17,13 +17,35 @@ function Link(props) {
   )
 }
 
+function Front(props) {
+  return (
+    <React.Fragment>
+      <h1>Is smoke a trigger for your asthma symptoms?</h1>
+      <p>Do you experience increased wheezing, coughing or chest tightness when exposed to smoke?</p>
+      <div>
+        <Button text='Yes' handleClick={props.handleClick}/> <Button text='No' handleClick={props.handleClick}/>
+      </div>
+    </React.Fragment>
+  )
+}
+
+function Back(props) {
+  return (
+    <React.Fragment>
+      <h1>Almost 40 million U.S. adults still smoke.</h1>
+      <p>But it's not too late to quit.</p>
+      <Link text='Learn More' handleClick={props.handleClick}/>
+    </React.Fragment>
+  )
+}
+
 function Card(props) {
   return (
     <div id={props.id} className="card">
       <h2>Symptoms Check</h2>
       <hr />
-      {props.type === 'front' && <React.Fragment><h1>Is smoke a trigger for your asthma symptoms?</h1><p>Do you experience increased wheezing, coughing or chest tightness when exposed to smoke?</p><div><Button text='Yes' handleClick={props.handleClick}/> <Button text='No' handleClick={props.handleClick}/></div></React.Fragment> }
-      {props.type === 'back' && <React.Fragment><h1>Almost 40 million U.S. adults still smoke.</h1><p>But it's not too late to quit.</p><Link text='Learn More' handleClick={props.handleClick}/></React.Fragment> }
+      {props.type === 'front' && <Front handleClick={props.handleClick} /> }
+      {props.type === 'back' && <Back handleClick={props.handleClick} /> }
       <div className="waves">
         <img src={waves} alt=""/>
       </div>
@@ -55,11 +77,7 @@ function App() {
       <h1 className="title">Asthma Card Flip Examples</h1>
       <Flippy
         isFlipped={isCardOneFlipped}
-        flipDirection="horizontal" // horizontal or vertical
-        // ref={(r) => this.flippy = r} // to use toggle method like this.flippy.toggle()
-        // if you pass isFlipped prop component will be controlled component.
-        // and other props, which will go to div
-        // style={{ width: '200px', height: '200px' }} /// these are optional style, it is not necessary
+        flipDirection="horizontal"
       >
         <FrontSide>
           <Card id="one" type="front" handleClick={e => handleClick(e)}/>
@@ -70,11 +88,7 @@ function App() {
       </Flippy>
       <Flippy
         isFlipped={isCardTwoFlipped}
-        flipDirection="vertical" // horizontal or vertical
-        // ref={(r) => this.flippy = r} // to use toggle method like this.flippy.toggle()
-        // if you pass isFlipped prop component will be controlled component.
-        // and other props, which will go to div
-        // style={{ width: '200px', height: '200px' }} /// these are optional style, it is not necessary
+        flipDirection="vertical"
       >
         <FrontSide>
           <Card id="two" type="front" handleClick={e => handleClick(e)}/>
@@ -85,11 +99,7 @@ function App() {
       </Flippy>
       <Flippy
         isFlipped={isCardThreeFlipped}
-        flipDirection="horizontal" // horizontal or vertical
-        // ref={(r) => this.flippy = r} // to use toggle method like this.flippy.toggle()
-        // if you pass isFlipped prop component will be controlled component.
-        // and other props, which will go to div
-        // style={{ width: '200px', height: '200px' }} /// these are optional style, it is not necessary
+        flipDirection="horizontal"
       >
         <FrontSide>
           <Card id="three" type="front" handleClick={e => handleClick(e)}/>
