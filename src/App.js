@@ -1,7 +1,7 @@
 import React, { useState, useEffect }  from 'react'
 import Flippy, { FrontSide, BackSide } from 'react-flippy'
 import SmokeMachine from '@bijection/smoke'
-import waves from './waves.svg'
+import Wave from 'react-wavify'
 import arrow from './arrow.svg'
 import './App.css'
 
@@ -46,9 +46,33 @@ function Card(props) {
       <hr />
       {props.type === 'front' && <Front handleClick={props.handleClick} /> }
       {props.type === 'back' && <Back handleClick={props.handleClick} /> }
-      <div className="waves">
+      {/* <div className="waves">
         <img src={waves} alt=""/>
-      </div>
+      </div> */}
+      <Wave 
+        className="wave"
+        fill="#D4EFEE"
+        opacity="0.7"
+        paused={false}
+        options={{
+          height: 115,
+          amplitude: 30,
+          speed: 0.2,
+          points: 3
+        }}
+      />
+      <Wave 
+        className="wave"
+        fill="#D4EFEE"
+        opacity="0.7"
+        paused={false}
+        options={{
+          height: 115,
+          amplitude: 30,
+          speed: 0.15,
+          points: 3
+        }}
+      />
     </div>
   )
 }

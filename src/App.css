@@ -65,10 +65,14 @@ button {
   margin: 0 auto;
 }
 
-.waves {
+.wave {
   position: absolute;
   bottom: 0px;
   pointer-events: none;
+}
+
+.wave svg path {
+  mix-blend-mode: multiply;
 }
 
 canvas {
