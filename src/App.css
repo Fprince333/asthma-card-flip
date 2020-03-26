@@ -69,19 +69,11 @@ button {
   position: absolute;
   bottom: 0px;
   pointer-events: none;
+  height: 100%;
 }
 
 .wave svg path {
   mix-blend-mode: multiply;
-}
-
-canvas {
-  position: absolute;
-  bottom: 50px;
-  pointer-events: none;
-  width: 100%;
-  height: 280px;
-  z-index: 1;
 }
 
 
@@ -96,19 +88,14 @@ canvas {
   margin-left: 6px;
 }
 
-.flippy-front,
-.flippy-back {
+.card-container {
   padding: 0;
   box-shadow: none;
+  margin: 20px 0;
 }
 
 @media screen and (min-width: 1200px) {
-  .flippy-front,
-  .flippy-back {
+  .card-container {
     min-width: 1184px;
   }
-}
-
-.flippy-container {
-  margin: 20px 0;
 }

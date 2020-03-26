@@ -1,6 +1,5 @@
-import React, { useState, useEffect }  from 'react'
-import Flippy, { FrontSide, BackSide } from 'react-flippy'
-import SmokeMachine from '@bijection/smoke'
+import React, { useState }  from 'react'
+// import SmokeMachine from '@bijection/smoke'
 import Wave from 'react-wavify'
 import arrow from './arrow.svg'
 import './App.css'
@@ -40,99 +39,61 @@ function Back(props) {
 }
 
 function Card(props) {
+  const firstWaveHeight = props.transitioning ? 400 : 285
+  const secondWaveHeight = props.transitioning ? 20 : 285
+
   return (
+    <div className="card-container">
     <div id={props.id} className="card">
       <h2>Symptoms Check</h2>
       <hr />
-      {props.type === 'front' && <Front handleClick={props.handleClick} /> }
-      {props.type === 'back' && <Back handleClick={props.handleClick} /> }
-      {/* <div className="waves">
-        <img src={waves} alt=""/>
-      </div> */}
+      {props.transitioning ? <Back handleClick={props.handleClick} /> : <Front handleClick={props.handleClick} /> }
       <Wave 
-        className="wave"
+        className={`wave ${props.transitioning && 'transitioning'}`}
         fill="#D4EFEE"
         opacity="0.7"
         paused={false}
         options={{
-          height: 115,
-          amplitude: 30,
-          speed: 0.2,
+          height: 285,
+          amplitude: 25,
+          speed: 0.25,
           points: 3
         }}
       />
       <Wave 
-        className="wave"
+        className={`wave ${props.transitioning && 'transitioning'}`}
         fill="#D4EFEE"
         opacity="0.7"
         paused={false}
         options={{
-          height: 115,
+          height: 285,
           amplitude: 30,
           speed: 0.15,
           points: 3
         }}
       />
     </div>
+    </div>
   )
 }
 
 function App() {
-  const [isCardOneFlipped, toggleCardOneFlip] = useState(false)
-  const [isCardTwoFlipped, toggleCardTwoFlip] = useState(false)
-  const [isCardThreeFlipped, toggleCardThreeFlip] = useState(false)
+  const [isCardOneTransitioned, transitionCardOne] = useState(false)
+  const [isCardTwoTransitioned, transitionCardTwo] = useState(false)
+  const [isCardThreeTransitioned, transitionCardThree] = useState(false)
 
   const handleClick = el => {
-    el.currentTarget.offsetParent.id === "one" && toggleCardOneFlip(!isCardOneFlipped)
-    el.currentTarget.offsetParent.id === "two" && toggleCardTwoFlip(!isCardTwoFlipped)
-    el.currentTarget.offsetParent.id === "three" && toggleCardThreeFlip(!isCardThreeFlipped)
+    el.currentTarget.offsetParent.id === "one" && transitionCardOne(!isCardOneTransitioned)
+    el.currentTarget.offsetParent.id === "two" && transitionCardTwo(!isCardTwoTransitioned)
+    el.currentTarget.offsetParent.id === "three" && transitionCardThree(!isCardThreeTransitioned)
   }
-  useEffect(() => {
-    const canvas = document.getElementById('canvas')
-    const ctx = canvas.getContext('2d')
-    const party = SmokeMachine(ctx, [54, 16.8, 18.2])
-    canvas.width = 1184
-    party.addSmoke(200,600,100)
-    party.addSmoke(1000,600,20)
-    party.start()
-  })
+
   return (
     <main>
       <h1 className="title">Asthma Card Flip Examples</h1>
-      <Flippy
-        isFlipped={isCardOneFlipped}
-        flipDirection="horizontal"
-      >
-        <FrontSide>
-          <Card id="one" type="front" handleClick={e => handleClick(e)}/>
-        </FrontSide>
-        <BackSide>
-          <Card id="one" type="back" handleClick={e => handleClick(e)}/>
-        </BackSide>
-      </Flippy>
-      <Flippy
-        isFlipped={isCardTwoFlipped}
-        flipDirection="vertical"
-      >
-        <FrontSide>
-          <Card id="two" type="front" handleClick={e => handleClick(e)}/>
-        </FrontSide>
-        <BackSide>
-          <Card id="two" type="back" handleClick={e => handleClick(e)}/>
-        </BackSide>
-      </Flippy>
-      <Flippy
-        isFlipped={isCardThreeFlipped}
-        flipDirection="horizontal"
-      >
-        <FrontSide>
-          <Card id="three" type="front" handleClick={e => handleClick(e)}/>
-        </FrontSide>
-        <BackSide>
-          <Card id="three" type="back" handleClick={e => handleClick(e)}/>
-          <canvas id="canvas"/>
-        </BackSide>
-      </Flippy>
+          <Card id="one" transitioning={isCardOneTransitioned} handleClick={e => handleClick(e)}/>
+          <Card id="two" transitioning={isCardTwoTransitioned} handleClick={e => handleClick(e)}/>
+          <Card id="three" transitioning={isCardThreeTransitioned} handleClick={e => handleClick(e)}/>
     </main>
   )
 }
