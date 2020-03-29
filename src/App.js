@@ -1,6 +1,8 @@
 import React, { useState }  from 'react'
 import { Animated } from "react-animated-css";
 import Wave from 'react-wavify'
+import cardBg from './card-bg.svg'
+import logo from './logo.png'
 import arrow from './arrow.svg'
 import './App.css'
 
@@ -40,11 +42,29 @@ function Back(props) {
   )
 }
 
-function Card(props) {
+function CardOne(props) {
+  return (
+    <div className="card-container">
+      <div className="card card-one" style={{backgroundImage: `url(${cardBg})`}}>
+        <div className="card-logo">
+          <img src={logo} alt="" />
+        </div>
+          <h1 style={{marginTop: 40, marginBottom: 16, lineHeight: "32px" }}>When I feel fine and have no symptoms <br />it's because the asthma has gone away.</h1>
+          <div className="center-container">
+            <Button text='Myth'/> <Button text='Fact'/>
+          </div>
+          <p>Learn more about the facts and common misconceptions of asthma.</p>
+          <Link text='Myth or Fact?'/>
+      </div>
+    </div>
+  )
+}
+
+function CardTwo(props) {
   const opacity = props.transitioning ? "1" : "0.7"
   return (
     <div className="card-container">
-    <div id={props.id} className="card">
+    <div className="card card-two">
       <h2>Symptoms Check</h2>
       <hr />
       <Front className={`${props.transitioning ? 'hidden' : ''}`} isVisible={!props.transitioning} handleClick={props.handleClick} />
@@ -90,7 +110,8 @@ function App() {
   return (
     <main>
       <h1 className="title">Asthma Card Flip Examples</h1>
-          <Card transitioning={isCardOneTransitioned} handleClick={e => handleClick(e)}/>
+        <CardOne />
+        <CardTwo transitioning={isCardOneTransitioned} handleClick={e => handleClick(e)}/>
     </main>
   )
 }
