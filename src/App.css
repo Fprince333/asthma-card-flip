@@ -32,6 +32,10 @@ hr {
   background-color: #778591;
 }
 
+.center-container {
+  text-align: center;
+}
+
 button {
   border: 2px solid #19B0A9;
   border-radius: 10px;
@@ -65,17 +69,49 @@ button {
   margin: 0 auto;
 }
 
-.wave {
+#wave {
+  width: 100%;
+  height: 25%;
+  position: absolute;
+  bottom: 0;
+}
+
+#wave.transition {
+  animation-name: move;
+  animation-duration: 3.5s;
+  animation-delay: 0s;
+}
+
+.hidden {
+  height: 0;
+}
+
+.waves {
   position: absolute;
   bottom: 0px;
   pointer-events: none;
   height: 100%;
 }
 
-.wave svg path {
+@keyframes move {
+  0% {
+    padding-top: 0px;
+  }
+  50% {
+    padding-top: 150px;
+  }
+  100% {
+    padding-top: 0px;
+  }
+}
+
+.waves svg path {
   mix-blend-mode: multiply;
 }
 
+#wave.transition > div:nth-child(1) > svg > path {
+  mix-blend-mode: normal;
+}
 
 .link {
   font-size: 15px;
@@ -95,6 +131,9 @@ button {
 }
 
 @media screen and (min-width: 1200px) {
+  .card {
+    height: 200px;
+  }
   .card-container {
     min-width: 1184px;
   }
