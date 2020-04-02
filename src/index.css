@@ -2,6 +2,7 @@ body {
   height: 100vh;
   padding: 2em;
   font-family: montserrat, sans-serif;
+  font-weight: 500;
 }
 
 main {

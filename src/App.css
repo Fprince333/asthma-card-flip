@@ -38,6 +38,7 @@ hr {
 }
 
 button {
+  font-family: montserrat, sans-serif;
   border: 2px solid #19B0A9;
   border-radius: 10px;
   font-weight: 700;
@@ -52,6 +53,14 @@ button {
   margin: 12px 6px;
   cursor: pointer;
   outline: none;
+  transition: all 0.4s;
+}
+
+button:hover {
+  background-color: #19B0A9;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .card {
@@ -71,6 +80,8 @@ button {
 .card-one {
   background-size: contain;
   background-repeat: no-repeat;
+  max-height: 373px;
+  justify-content: center;
 }
 
 .card-logo {
