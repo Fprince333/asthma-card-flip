@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "rm -rf build && react-scripts build && cd build && surge --domain https://asthma-cards.surge.sh"
+    "deploy": "rm -rf build && react-scripts build && cd build && duck --upload sftp://flasthmacards@198.61.134.241/var/www/flasthmacards/www . -e overwrite"
   },
   "eslintConfig": {
     "extends": "react-app"
