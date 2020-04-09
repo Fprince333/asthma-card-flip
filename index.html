@@ -2,73 +2,8 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width">
-<style>
-    body {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    .waves-content-container {
-        max-width: 960px;
-        height: 300px;
-        position: relative;
-        margin: 0 auto;
-        overflow: hidden;
-    }
-
-    .waves-content {
-        text-align: center;
-        padding: 50px;
-    }
-
-    .waves-content-container svg {
-        min-height: 160px;
-        position: absolute;
-        bottom:0px;
-     }
-    
-    #wavesAnswer {
-        display: none;
-    }
-
-    .wave {
-        animation: wave 10s linear;
-        animation-iteration-count:infinite;
-        fill: #D4EFEE;
-    }
-
-    #wave2 {
-        animation-duration:12s;
-        animation-direction: reverse;
-        opacity: .6;
-    }
-
-    #wave3 {
-        animation-duration: 14s;
-        opacity:.3;
-    }
-
-    @keyframes wave {
-        to {transform: translateX(-100%);}
-    }
-</style>
-
-<script>
-    function moveWaves() {
-        var wavesSvg = $("#wavesSvg");
-        var height = wavesSvg.parent().outerHeight();
-        var currentHeight = wavesSvg.outerHeight();
-        var animationTime = 2000;
-
-        wavesSvg.animate({ height: height * 4 }, animationTime, function() {
-            $("#wavesButton").hide();
-            $("#wavesAnswer").fadeIn(animationTime);
-            $(this).animate({ height: currentHeight }, animationTime);
-        });
-    }
-</script>
+<link rel="stylesheet" href="./css/main.css">
+<script src="./js/main.js"></script>
 
 </head>
 <body>
