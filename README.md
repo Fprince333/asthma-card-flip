@@ -39,4 +39,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ### `yarn deploy`
 
-Using the surge domain set at the CNAME level
+To use the deploy command, install [duck](https://duck.sh/) and get the credentials from [Kent](mailto:kpytlik@webershandwick.com) or [Will](mailto:will.smith@webershandwick.com)
