@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<style>
+    body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .waves-content-container {
+        max-width: 960px;
+        height: 300px;
+        position: relative;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .waves-content {
+        text-align: center;
+        padding: 50px;
+    }
+
+    .waves-content-container svg {
+        min-height: 160px;
+        position: absolute;
+        bottom:0px;
+     }
+    
+    #wavesAnswer {
+        display: none;
+    }
+
+    .wave {
+        animation: wave 10s linear;
+        animation-iteration-count:infinite;
+        fill: #D4EFEE;
+    }
+
+    #wave2 {
+        animation-duration:12s;
+        animation-direction: reverse;
+        opacity: .6;
+    }
+
+    #wave3 {
+        animation-duration: 14s;
+        opacity:.3;
+    }
+
+    @keyframes wave {
+        to {transform: translateX(-100%);}
+    }
+</style>
+
+<script>
+    function moveWaves() {
+        var wavesSvg = $("#wavesSvg");
+        var height = wavesSvg.parent().outerHeight();
+        var currentHeight = wavesSvg.outerHeight();
+        var animationTime = 2000;
+
+        wavesSvg.animate({ height: height * 4 }, animationTime, function() {
+            $("#wavesButton").hide();
+            $("#wavesAnswer").fadeIn(animationTime);
+            $(this).animate({ height: currentHeight }, animationTime);
+        });
+    }
+</script>
+
+</head>
+<body>
+<div class="waves-content-container">
+    <div class="waves-content" id="wavesButton">
+        <button onclick="moveWaves()">click me</button>
+    </div>
+    <div class="waves-content" id="wavesAnswer">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales massa nec aliquet malesuada. Integer gravida
+        eget nibh a suscipit. Sed in scelerisque massa. Donec finibus venenatis orci, vel bibendum nibh cursus id. Suspendisse
+        ornare ipsum aliquam lorem scelerisque consectetur. </p>
+    </div>
+
+    <svg id="wavesSvg" viewBox="0 0 120 20">
+        <defs> 
+            <path id="wave" d="M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 150,10 150,15 180,15 210,15 210,10 240,10 v 28 h -240 z" />
+        </defs> 
+        <use id="wave3" class="wave" xlink:href="#wave" x="0" y="-1" ></use> 
+        <use id="wave2" class="wave" xlink:href="#wave" x="0" y="0" ></use>
+        <use id="wave1" class="wave" xlink:href="#wave" x="0" y="1" />
+    </svg>
+</div>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+</body>
+</html>
