@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<link rel="stylesheet" href="./css/main.css">
-<script src="./js/main.js"></script>
-
+    <link rel="stylesheet" href="https://use.typekit.net/lug3ovj.css">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-<div class="waves-content-container">
-    <div class="waves-content" id="wavesButton">
-        <button onclick="moveWaves()">click me</button>
+    <div class="card">
+        <div class="card-content">
+            <div class="card-title">
+                <h2>This is a Card Title</h2>
+                <hr>
+            </div>
+            <div id="question" class="card-question visible">
+                <h1>This is a question prompt</h1>
+                <p>This is some extra text.</p>
+                <button id="tide">View answer</button>
+            </div>
+            <div id="answer" class="card-answer hidden">
+                <h1>This is the answer to that question for the card.</h1>
+                <p>This is some extra text.</p>
+            </div>
+        </div>
+        <div id="sea" class="ocean">
+            <svg viewBox="0 0 120 20">
+                <defs> 
+                    <path id="wave" d="M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 150,10 150,15 180,15 210,15 210,10 240,10 v 28 h -240 z" />
+                </defs> 
+                <use id="wave3" class="wave" xlink:href="#wave" x="0" y="-1" ></use> 
+                <use id="wave2" class="wave" xlink:href="#wave" x="0" y="0" ></use>
+                <use id="wave1" class="wave" xlink:href="#wave" x="0" y="1" />
+            </svg>
+            <div class="ocean-floor"></div>
+        </div>
     </div>
-    <div class="waves-content" id="wavesAnswer">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales massa nec aliquet malesuada. Integer gravida
-        eget nibh a suscipit. Sed in scelerisque massa. Donec finibus venenatis orci, vel bibendum nibh cursus id. Suspendisse
-        ornare ipsum aliquam lorem scelerisque consectetur. </p>
-    </div>
-
-    <svg id="wavesSvg" viewBox="0 0 120 20">
-        <defs> 
-            <path id="wave" d="M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 150,10 150,15 180,15 210,15 210,10 240,10 v 28 h -240 z" />
-        </defs> 
-        <use id="wave3" class="wave" xlink:href="#wave" x="0" y="-1" ></use> 
-        <use id="wave2" class="wave" xlink:href="#wave" x="0" y="0" ></use>
-        <use id="wave1" class="wave" xlink:href="#wave" x="0" y="1" />
-    </svg>
-</div>
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
